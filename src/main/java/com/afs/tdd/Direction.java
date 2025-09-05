@@ -14,7 +14,7 @@ public enum Direction {
         return switch (this){
             case N -> E;
             case S -> W;
-            case E -> N;
+            case E -> S;
             case W -> S;
         };
     }
