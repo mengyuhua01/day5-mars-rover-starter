@@ -20,6 +20,8 @@ public class MarsRover {
             this.location.setLocationY(location.getLocationY()+1);
         } else if (direction == Direction.S) {
             this.location.setLocationY(location.getLocationY()-1);
+        } else if (direction == Direction.E) {
+            this.location.setLocationX(location.getLocationX()+1);
         }
     }
 }
