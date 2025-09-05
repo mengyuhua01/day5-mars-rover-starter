@@ -11,11 +11,11 @@ class DemoTest {
         MarsRover marsRover = new MarsRover(new Location(0,0,Direction.N));
         //when
         marsRover.executeCommand("M");
-        Location exceptedLocation = new Location(0,1,Direction.N);
+        Location expectedLocation = new Location(0,1,Direction.N);
         //then
-        assertEquals(exceptedLocation.getLocationX(),marsRover.getLocation().getLocationX());
-        assertEquals(exceptedLocation.getLocationY(),marsRover.getLocation().getLocationY());
-        assertEquals(exceptedLocation.getDirection(),marsRover.getLocation().getDirection());
+        assertEquals(expectedLocation.getLocationX(),marsRover.getLocation().getLocationX());
+        assertEquals(expectedLocation.getLocationY(),marsRover.getLocation().getLocationY());
+        assertEquals(expectedLocation.getDirection(),marsRover.getLocation().getDirection());
     }
 
     @Test
@@ -24,10 +24,23 @@ class DemoTest {
         MarsRover marsRover = new MarsRover(new Location(0,0,Direction.S));
         //when
         marsRover.executeCommand("M");
-        Location exceptedLocation = new Location(0,-1,Direction.S);
+        Location expectedLocation = new Location(0,-1,Direction.S);
         //then
-        assertEquals(exceptedLocation.getLocationX(),marsRover.getLocation().getLocationX());
-        assertEquals(exceptedLocation.getLocationY(),marsRover.getLocation().getLocationY());
-        assertEquals(exceptedLocation.getDirection(),marsRover.getLocation().getDirection());
+        assertEquals(expectedLocation.getLocationX(),marsRover.getLocation().getLocationX());
+        assertEquals(expectedLocation.getLocationY(),marsRover.getLocation().getLocationY());
+        assertEquals(expectedLocation.getDirection(),marsRover.getLocation().getDirection());
+    }
+
+    @Test
+    void should_move_when_executeCommand_given_M_Direction_E() {
+        //given
+        MarsRover marsRover = new MarsRover(new Location(0,0,Direction.E));
+        //when
+        marsRover.executeCommand("M");
+        Location expectedLocation = new Location(1,0,Direction.E);
+        //then
+        assertEquals(expectedLocation.getLocationX(),marsRover.getLocation().getLocationX());
+        assertEquals(expectedLocation.getLocationY(),marsRover.getLocation().getLocationY());
+        assertEquals(expectedLocation.getDirection(),marsRover.getLocation().getDirection());
     }
 }
