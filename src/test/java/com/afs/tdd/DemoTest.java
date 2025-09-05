@@ -108,4 +108,14 @@ class DemoTest {
         //then
         assertEquals(expectedLocation, marsRover.getLocation());
     }
+    @Test
+    void should_turn_right_90_degrees_when_executeCommand_given_R_Direction_E() {
+        //given
+        MarsRover marsRover = new MarsRover(new Location(0,0,Direction.E));
+        //when
+        marsRover.executeCommand("R");
+        Location expectedLocation = new Location(0,0,Direction.S);
+        //then
+        assertEquals(expectedLocation, marsRover.getLocation());
+    }
 }
