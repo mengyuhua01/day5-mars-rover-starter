@@ -5,6 +5,7 @@ public enum Direction {
     public Direction turnLeft(){
         switch (this){
             case N : return W;
+            case S:  return E;
             default : throw new RuntimeException("Invalid direction");
         }
     }
