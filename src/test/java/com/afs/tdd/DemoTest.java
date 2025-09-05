@@ -13,9 +13,7 @@ class DemoTest {
         marsRover.executeCommand("M");
         Location expectedLocation = new Location(0,1,Direction.N);
         //then
-        assertEquals(expectedLocation.getLocationX(),marsRover.getLocation().getLocationX());
-        assertEquals(expectedLocation.getLocationY(),marsRover.getLocation().getLocationY());
-        assertEquals(expectedLocation.getDirection(),marsRover.getLocation().getDirection());
+        assertEquals(expectedLocation, marsRover.getLocation());
     }
 
     @Test
@@ -26,9 +24,7 @@ class DemoTest {
         marsRover.executeCommand("M");
         Location expectedLocation = new Location(0,-1,Direction.S);
         //then
-        assertEquals(expectedLocation.getLocationX(),marsRover.getLocation().getLocationX());
-        assertEquals(expectedLocation.getLocationY(),marsRover.getLocation().getLocationY());
-        assertEquals(expectedLocation.getDirection(),marsRover.getLocation().getDirection());
+        assertEquals(expectedLocation, marsRover.getLocation());
     }
 
     @Test
@@ -39,9 +35,7 @@ class DemoTest {
         marsRover.executeCommand("M");
         Location expectedLocation = new Location(1,0,Direction.E);
         //then
-        assertEquals(expectedLocation.getLocationX(),marsRover.getLocation().getLocationX());
-        assertEquals(expectedLocation.getLocationY(),marsRover.getLocation().getLocationY());
-        assertEquals(expectedLocation.getDirection(),marsRover.getLocation().getDirection());
+        assertEquals(expectedLocation, marsRover.getLocation());
     }
     @Test
     void should_move_when_executeCommand_given_M_Direction_W() {
@@ -51,8 +45,6 @@ class DemoTest {
         marsRover.executeCommand("M");
         Location expectedLocation = new Location(-1,0,Direction.W);
         //then
-        assertEquals(expectedLocation.getLocationX(),marsRover.getLocation().getLocationX());
-        assertEquals(expectedLocation.getLocationY(),marsRover.getLocation().getLocationY());
-        assertEquals(expectedLocation.getDirection(),marsRover.getLocation().getDirection());
+        assertEquals(expectedLocation, marsRover.getLocation());
     }
 }
