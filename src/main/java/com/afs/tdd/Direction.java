@@ -13,7 +13,7 @@ public enum Direction {
     public Direction turnRight(){
         return switch (this){
             case N -> E;
-            case S -> E;
+            case S -> W;
             case E -> N;
             case W -> S;
         };
