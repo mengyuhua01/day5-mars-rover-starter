@@ -6,15 +6,15 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class DemoTest {
     @Test
-    void should_move_when_executeCommand_given_M() {
+    void should_move_when_executeCommand_given_M_Direction_N() {
         //given
         MarsRover marsRover = new MarsRover(new Location(0,0,Direction.N));
         //when
-        marsRover.executeCommand(Command.M);
+        marsRover.executeCommand("M");
         Location currentLocation = new Location(0,1,Direction.N);
         //then
-        assertEquals(currentLocation.getX(),marsRover.getLocation().getX());
-        assertEquals(currentLocation.getY(),marsRover.getLocation().getY());
+        assertEquals(currentLocation.getLocationX(),marsRover.getLocation().getLocationX());
+        assertEquals(currentLocation.getLocationY(),marsRover.getLocation().getLocationY());
         assertEquals(currentLocation.getDirection(),marsRover.getLocation().getDirection());
     }
 }
