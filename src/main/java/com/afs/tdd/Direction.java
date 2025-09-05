@@ -15,7 +15,7 @@ public enum Direction {
             case N -> E;
             case S -> W;
             case E -> S;
-            case W -> S;
+            case W -> N;
         };
     }
 }
