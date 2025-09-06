@@ -141,10 +141,10 @@ class DemoTest {
     @Test
     void should_move_backward_when_executeCommand_given_B_Direction_S() {
         //given
-        MarsRover marsRover = new MarsRover(new Location(0,0,Direction.N));
+        MarsRover marsRover = new MarsRover(new Location(0,0,Direction.S));
         //when
         marsRover.executeCommand("B");
-        Location expectedLocation = new Location(0,1,Direction.N);
+        Location expectedLocation = new Location(0,1,Direction.S);
         //then
         assertEquals(expectedLocation, marsRover.getLocation());
     }

@@ -35,6 +35,8 @@ public class MarsRover {
         Direction direction = location.getDirection();
         if (direction == Direction.N) {
             this.location.setLocationY(location.getLocationY() - 1);
+        }else if (direction == Direction.S) {
+            this.location.setLocationY(location.getLocationY()+1);
         }
     }
     private void turnLeft(){
