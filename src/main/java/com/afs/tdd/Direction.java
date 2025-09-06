@@ -18,4 +18,20 @@ public enum Direction {
             case W -> N;
         };
     }
+    public int[] getMovement() {
+        return switch (this) {
+            case N -> new int[]{0, 1};
+            case S -> new int[]{0, -1};
+            case E -> new int[]{1, 0};
+            case W -> new int[]{-1, 0};
+        };
+    }
+    public int[] getBackwardMovement() {
+        return switch (this) {
+            case N -> new int[]{0, -1};
+            case S -> new int[]{0, 1};
+            case E -> new int[]{-1, 0};
+            case W -> new int[]{1, 0};
+        };
+    }
 }

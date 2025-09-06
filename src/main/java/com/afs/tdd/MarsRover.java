@@ -10,40 +10,31 @@ public class MarsRover {
     }
     public  void executeCommand(String command) {
         if(command.equals("M")){
-            move();
+            moveForward();
         } else if (command.equals("L")) {
             turnLeft();
         } else if (command.equals("R")) {
             turnRight();
         }else if(command.equals("B")){
-             move_backward();
+             moveBackward();
         }
     }
-    private void move(){
-        Direction direction = location.getDirection();
-        if(direction == Direction.N){
-            this.location.setLocationY(location.getLocationY()+1);
-        } else if (direction == Direction.S) {
-            this.location.setLocationY(location.getLocationY()-1);
-        } else if (direction == Direction.E) {
-            this.location.setLocationX(location.getLocationX()+1);
-        }else  if (direction == Direction.W){
-            this.location.setLocationX(location.getLocationX()-1);
-        }
+    private void moveForward(){
+        int[] movement = location.getDirection().getMovement();
+        location.setLocationX(location.getLocationX() + movement[0]);
+        location.setLocationY(location.getLocationY() + movement[1]);
     }
-    private void move_backward() {
-        Direction direction = location.getDirection();
-        if (direction == Direction.N) {
-            this.location.setLocationY(location.getLocationY() - 1);
-        }else if (direction == Direction.S) {
-            this.location.setLocationY(location.getLocationY()+1);
-        } else if (direction == Direction.E) {
-            this.location.setLocationX(location.getLocationX()-1);
-        }
+
+    private void moveBackward() {
+        int[] movement = location.getDirection().getBackwardMovement();
+        location.setLocationX(location.getLocationX() + movement[0]);
+        location.setLocationY(location.getLocationY() + movement[1]);
     }
+
     private void turnLeft(){
         this.location.setDirection(location.getDirection().turnLeft());
     }
+
     private void turnRight(){
         this.location.setDirection(location.getDirection().turnRight());
     }
