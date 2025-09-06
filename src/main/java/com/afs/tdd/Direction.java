@@ -2,21 +2,13 @@ package com.afs.tdd;
 
 public enum Direction {
     N, E, S, W;
+    private static final Direction[] DIRECTIONS = values();
+
     public Direction turnLeft(){
-        return switch (this){
-            case N -> W;
-            case S -> E;
-            case E -> N;
-            case W -> S;
-        };
+        return DIRECTIONS[(this.ordinal() + 3) % DIRECTIONS.length];
     }
     public Direction turnRight(){
-        return switch (this){
-            case N -> E;
-            case S -> W;
-            case E -> S;
-            case W -> N;
-        };
+        return DIRECTIONS[(this.ordinal() + 1) % DIRECTIONS.length];
     }
     public int[] getMovement() {
         return switch (this) {
