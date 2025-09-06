@@ -168,5 +168,16 @@ class DemoTest {
         //then
         assertEquals(expectedLocation, marsRover.getLocation());
     }
+    @Test
+    void should_execute_multiple_commands_and_get_correct_location() {
+        //given
+        MarsRover marsRover = new MarsRover(new Location(0, 0, Direction.N));
+        //when
+        marsRover.excuteCommandByBatch("MMLRB");
+        Location expectedLocation = new Location(0, 1, Direction.N);
+        //then
+        assertEquals(expectedLocation, marsRover.getLocation());
+    }
+
 
 }
