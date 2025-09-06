@@ -8,20 +8,17 @@ public class MarsRover {
     public  Location getLocation() {
         return location;
     }
-    public void executeCommandsByBatch(String commands){
+    public void executeCommands(String commands){
         for(char command : commands.toCharArray()){
             executeCommand(command);
         }
     }
-    public  void executeCommand(char command) {
-        if(command == 'M'){
-            moveForward();
-        } else if (command == 'L') {
-            turnLeft();
-        } else if (command == 'R') {
-            turnRight();
-        }else if(command == 'B'){
-             moveBackward();
+    private  void executeCommand(char command) {
+        switch (command) {
+            case 'M' -> moveForward();
+            case 'B' -> moveBackward();
+            case 'L' -> turnLeft();
+            case 'R' -> turnRight();
         }
     }
     private void moveForward(){
