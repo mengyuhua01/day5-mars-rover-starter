@@ -148,5 +148,15 @@ class DemoTest {
         //then
         assertEquals(expectedLocation, marsRover.getLocation());
     }
+    @Test
+    void should_move_backward_when_executeCommand_given_B_Direction_E() {
+        //given
+        MarsRover marsRover = new MarsRover(new Location(0,0,Direction.E));
+        //when
+        marsRover.executeCommand("B");
+        Location expectedLocation = new Location(-1,0,Direction.E);
+        //then
+        assertEquals(expectedLocation, marsRover.getLocation());
+    }
 
 }
