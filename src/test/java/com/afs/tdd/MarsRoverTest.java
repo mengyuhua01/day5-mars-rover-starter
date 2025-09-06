@@ -3,6 +3,7 @@ package com.afs.tdd;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class MarsRoverTest {
     @Test
@@ -177,6 +178,14 @@ class MarsRoverTest {
         Location expectedLocation = new Location(0, 1, Direction.N);
         //then
         assertEquals(expectedLocation, marsRover.getLocation());
+    }
+    @Test
+    void should_throw_exception_when_executeCommands_given_invalid_command() {
+        //given
+        MarsRover marsRover = new MarsRover(new Location(0, 0, Direction.N));
+        //when & then
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> marsRover.executeCommands("EMX"));
+        assertEquals("Invalid commands: EMX", exception.getMessage());
     }
 
 
