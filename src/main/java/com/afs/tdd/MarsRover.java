@@ -2,13 +2,16 @@ package com.afs.tdd;
 
 public class MarsRover {
     private  final Location location;
-    MarsRover(Location location) {
+    public MarsRover(Location location) {
         this.location = location;
     }
     public  Location getLocation() {
         return location;
     }
     public void executeCommands(String commands){
+        if (!isCommandsValid(commands)){
+            throw  new IllegalArgumentException("Invalid commands: " + commands);
+        }
         for(char command : commands.toCharArray()){
             executeCommand(command);
         }
@@ -20,6 +23,9 @@ public class MarsRover {
             case 'L' -> turnLeft();
             case 'R' -> turnRight();
         }
+    }
+    private boolean isCommandsValid(String commands){
+        return commands.matches("[MBLR]*");
     }
     private void moveForward(){
         int[] movement = location.getDirection().getMovement();
