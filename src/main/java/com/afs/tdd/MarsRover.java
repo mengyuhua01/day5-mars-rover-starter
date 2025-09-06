@@ -8,14 +8,19 @@ public class MarsRover {
     public  Location getLocation() {
         return location;
     }
-    public  void executeCommand(String command) {
-        if(command.equals("M")){
+    public void executeCommandsByBatch(String commands){
+        for(char command : commands.toCharArray()){
+            executeCommand(command);
+        }
+    }
+    public  void executeCommand(char command) {
+        if(command == 'M'){
             moveForward();
-        } else if (command.equals("L")) {
+        } else if (command == 'L') {
             turnLeft();
-        } else if (command.equals("R")) {
+        } else if (command == 'R') {
             turnRight();
-        }else if(command.equals("B")){
+        }else if(command == 'B'){
              moveBackward();
         }
     }
