@@ -25,7 +25,7 @@ public class MarsRover {
         }
     }
     private boolean isCommandsValid(String commands){
-        return commands.matches("[MBLR]*");
+        return commands.matches("[MBLR]+");
     }
     private void moveForward(){
         int[] movement = location.getDirection().getMovement();
